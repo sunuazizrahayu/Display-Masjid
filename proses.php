@@ -1315,7 +1315,7 @@ isha		= 18°
 	}
 	private function sistem(){
 		$tempResouce = fopen("/sys/class/hwmon/hwmon0/temp1_input","r");
-		$temp = number_format(fgets($tempResouce),2);
+		$temp = number_format(fgets($tempResouce)/1000,2);
 		ob_start();
 		echo '
 			<section class="content-header content-dynamic">
