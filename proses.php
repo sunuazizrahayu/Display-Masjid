@@ -1314,8 +1314,8 @@ isha		= 18°
 		$this->retSuccess();
 	}
 	private function sistem(){
-		$temp	= exec("/opt/vc/bin/vcgencmd measure_temp | egrep -o '[0-9]*\.[0-9]*'");
-		// $temp	= exec("/opt/vc/bin/vcgencmd measure_temp");
+		$tempResouce = fopen("/sys/class/hwmon/hwmon0/temp1_input","r");
+		$temp = number_format(fgets($tempResouce),2);
 		ob_start();
 		echo '
 			<section class="content-header content-dynamic">
